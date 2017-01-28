@@ -1,0 +1,7 @@
+{
+	"files": ["index.html", "./dist/**/*.{html,css,js}"],
+	"server": {
+		"baseDir": "./dist",
+		"index": "index.html"
+	}
+}
