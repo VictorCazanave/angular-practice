@@ -1,11 +1,13 @@
 <h2>Search</h2>
-<form (submit)="search($event)">
-  <input type="search" />
+<form (submit)="search($event, query.value)">
+  <input #query type="search" />
 </form>
 <ul>
   <li *ngFor="let game of games">
     <article>
       <h1>{{ game.name }}</h1>
+      <img *ngIf="game.cover" src="{{ game.cover.url }}" width="{{ game.cover.width }}" height="{{ game.cover.height }}" alt="Cover of {{ game.name }}">
+      <img *ngIf="!game.cover" src="{{ defaultCover.url }}" width="{{ defaultCover.width }}" height="{{ defaultCover.height }}" alt="Cover not available">
     </article>
   </li>
 </ul>

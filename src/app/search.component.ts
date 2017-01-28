@@ -8,15 +8,21 @@ import { SearchService } from './search.service'
 })
 
 export class SearchComponent {
+	readonly defaultCover: cover;
 	games: game[];
 
-	constructor(private searchService: SearchService) { }
+	constructor(private searchService: SearchService) {
+		this.defaultCover = {
+			url: 'http://yeutretho.websan.vn/media/crop/190x125/',
+			width: 190,
+			height: 200
+		};
+	}
 
-	search(event: any): Promise<any> {
+	search(event: any, query: string): Promise<any> {
 		event.preventDefault();
-		console.log('search');
 
-		return this.searchService.search('witcher')
+		return this.searchService.search(query)
 			.then(response => {
 				this.games = response.json() as game[]
 			})
@@ -29,4 +35,12 @@ export class SearchComponent {
 interface game {
 	id: number;
 	name: string;
+	rating: number;
+	cover: cover;
+}
+
+interface cover {
+	url: string;
+	width: number;
+	height: number;
 }

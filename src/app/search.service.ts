@@ -6,22 +6,17 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class SearchService {
 
-	constructor(private http: Http) {
-		let headers = new Headers({
+	private _headers: Headers;
+
+	constructor(private _http: Http) {
+		this._headers = new Headers({
 			'Accept': 'application/json',
-			'Content-Type': 'application/json',
-			'X-Mashape-Key': 'Use your own API key!'
+			'X-Mashape-Key': 'Use your own API key'
 		});
 	}
 
 	search(query: string) {
-		let headers = new Headers({
-			'Accept': 'application/json',
-			'X-Mashape-Key': 'Oupsy'
-		});
-		console.log('search service', query)
-
-		return this.http.get('https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name&limit=10&offset=0&search=' + query, { headers: headers })
+		return this._http.get('https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name,rating,cover&limit=10&offset=0&search=' + query, { headers: this._headers })
 			.toPromise();
 	}
 }
