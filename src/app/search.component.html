@@ -1,0 +1,11 @@
+<h2>Search</h2>
+<form (submit)="search($event)">
+  <input type="search" />
+</form>
+<ul>
+  <li *ngFor="let game of games">
+    <article>
+      <h1>{{ game.name }}</h1>
+    </article>
+  </li>
+</ul>
