@@ -17,7 +17,7 @@ export class SearchService {
 	search(query: string) {
 		let headers = new Headers({
 			'Accept': 'application/json',
-			'X-Mashape-Key': 'HmmzxZLCPbmsh3gPybgDd7oPT5KLp1UHkQpjsny3DcjaTunYT8'
+			'X-Mashape-Key': 'Oupsy'
 		});
 		console.log('search service', query)
 
