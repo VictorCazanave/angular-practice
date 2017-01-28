@@ -1,0 +1,13 @@
+{
+	"files": [
+		"src/main.ts"
+	],
+	"compileOnSave": false,
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"target": "es2015",
+		"types": ["node"],
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true
+	}
+}
