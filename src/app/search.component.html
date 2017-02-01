@@ -2,12 +2,16 @@
 <form (submit)="search($event, query.value)">
   <input #query type="search" />
 </form>
-<ul>
+<p *ngIf="error">
+  An error occurred during the request<br /> {{ error }}
+</p>
+<ul *ngIf="!error">
   <li *ngFor="let game of games">
     <article>
-      <h1>{{ game.name }}</h1>
-      <img *ngIf="game.cover" src="{{ game.cover.url }}" width="{{ game.cover.width }}" height="{{ game.cover.height }}" alt="Cover of {{ game.name }}">
+      <h1><a [routerLink]="['/search-detail', game.id]">{{ game.name }}</a></h1>
+      <img *ngIf="game.cover" src="{{ game.cover.url }}" alt="Cover of {{ game.name }}">
       <img *ngIf="!game.cover" src="{{ defaultCover.url }}" width="{{ defaultCover.width }}" height="{{ defaultCover.height }}" alt="Cover not available">
+      <div>{{ game.rating | number : '1.0-0' | rating }}</div>
     </article>
   </li>
 </ul>

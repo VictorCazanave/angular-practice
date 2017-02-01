@@ -8,10 +8,14 @@ import { SearchService } from './search.service'
 })
 
 export class SearchComponent {
+
+	// TIPS: 'const' keyword can't be used to declare class properties
+	// http://stackoverflow.com/a/37265481
 	readonly defaultCover: cover;
 	games: game[];
+	error: string;
 
-	constructor(private searchService: SearchService) {
+	constructor(private _searchService: SearchService) {
 		this.defaultCover = {
 			url: 'http://yeutretho.websan.vn/media/crop/190x125/',
 			width: 190,
@@ -22,12 +26,12 @@ export class SearchComponent {
 	search(event: any, query: string): Promise<any> {
 		event.preventDefault();
 
-		return this.searchService.search(query)
+		return this._searchService.search(query)
 			.then(response => {
 				this.games = response.json() as game[]
 			})
 			.catch(error => {
-				console.error('Error', error);
+				this.error = error.json().message;
 			});
 	}
 }
