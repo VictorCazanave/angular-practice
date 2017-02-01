@@ -1,0 +1,17 @@
+<article>
+  <h1>{{ game.name }}</h1>
+  <img *ngIf="game.cover" src="{{ game.cover?.url }}" alt="Cover of {{ game.name }}">
+  <div>{{ game.rating | number : '1.0-0' | rating }}</div>
+
+  <div *ngIf="game.summary">
+    <h2>Summary</h2>
+    <p>{{ game.summary }}</p>
+  </div>
+
+  <div *ngIf="game.screenshots">
+    <h2>Screenshots</h2>
+    <ul>
+      <li *ngFor="let screenshot of game.screenshots"><img src="{{ screenshot.url }}" alt="A screenshot of {{ game.name }}"></li>
+    </ul>
+  </div>
+</article>
