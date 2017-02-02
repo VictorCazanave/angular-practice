@@ -3,7 +3,9 @@ import { SearchService } from './search.service'
 
 @Component({
 	selector: 'search',
-	templateUrl: './app/search.component.html',
+	// TODO: Use relative paths! Big fail for now...
+	//moduleId: module.id,
+	templateUrl: './app/search/search.component.html',
 	providers: [SearchService]
 })
 
@@ -19,7 +21,7 @@ export class SearchComponent {
 		this.defaultCover = {
 			url: 'http://yeutretho.websan.vn/media/crop/190x125/',
 			width: 190,
-			height: 200
+			height: 125
 		};
 	}
 

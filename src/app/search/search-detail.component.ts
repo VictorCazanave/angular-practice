@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'search-detail',
-	templateUrl: './app/search-detail.component.html'
+	templateUrl: './app/search/search-detail.component.html'
 })
 
 export class SearchDetailComponent implements OnInit {
