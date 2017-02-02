@@ -21,8 +21,8 @@ Try :
 
 ### TODO
 * Try observable instead of promise
-* Use module.id for templateUrl
-* Reorganize files into folders
+* Use relative paths for templateUrl
+* Reorganize files into folders (components, services, pipes...?)
 * Create a navigation menu to access different pages
 * Make it ~~beautiful~~ less ugly (Bootstrap ?)
 
