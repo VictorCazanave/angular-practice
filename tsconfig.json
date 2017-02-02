@@ -8,6 +8,7 @@
 		"target": "es2015",
 		"types": ["node"],
 		"experimentalDecorators": true,
+		"module": "commonjs",
 		"emitDecoratorMetadata": true
 	}
 }
