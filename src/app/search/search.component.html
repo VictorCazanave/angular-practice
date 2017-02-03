@@ -1,6 +1,8 @@
 <h2>Search</h2>
+<p>Looking for a video game?</p>
 <form (submit)="search($event, query.value)">
   <input #query type="search" />
+  <button type="submit">Search</button>
 </form>
 <p *ngIf="error">
   An error occurred during the request<br /> {{ error }}

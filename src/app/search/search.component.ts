@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+
 import { SearchService } from './search.service'
+
+import { Game } from './game'
+import { Image } from './image'
 
 @Component({
 	selector: 'search',
@@ -13,8 +17,8 @@ export class SearchComponent {
 
 	// TIPS: 'const' keyword can't be used to declare class properties
 	// http://stackoverflow.com/a/37265481
-	readonly defaultCover: cover;
-	games: game[];
+	readonly defaultCover: Image;
+	games: Game[];
 	error: string;
 
 	constructor(private _searchService: SearchService) {
@@ -30,23 +34,10 @@ export class SearchComponent {
 
 		return this._searchService.search(query)
 			.then(response => {
-				this.games = response.json() as game[]
+				this.games = response.json() as Game[]
 			})
 			.catch(error => {
 				this.error = error.json().message;
 			});
 	}
-}
-
-interface game {
-	id: number;
-	name: string;
-	rating: number;
-	cover: cover;
-}
-
-interface cover {
-	url: string;
-	width: number;
-	height: number;
 }
