@@ -17,10 +17,7 @@ var browsered = browserify({
 		packageCache: {}
 	})
 	.plugin(tsify)
-	.transform('babelify', {
-		presets: ['es2015'],
-		extensions: ['.ts']
-	});
+	.transform('babelify');
 
 // Bundle JS files
 function bundle(files) {
@@ -31,7 +28,7 @@ function bundle(files) {
 		.pipe(sourcemaps.init({
 			loadMaps: true
 		}))
-		//.pipe(uglify()) // Do it only for production ?
+		.pipe(uglify()) // Do it only for production?
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('dist'));
 }
