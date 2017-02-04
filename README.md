@@ -7,7 +7,7 @@ It's not innovative. It's not useful. It's not beautiful. It's just a random pro
 
 #### Tasks
 * `gulp clean`: delete all files and folders inside `dist/`.
-* `gulp html`:
+* `gulp html`: copy all HTML files from `src/` to `dist/` keeping the folders tree.
 * `gulp js`:
 * `gulp build`:
 * `gulp watch`:
