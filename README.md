@@ -6,7 +6,7 @@ It's not innovative. It's not useful. It's not beautiful. It's just a random pro
 ### Gulp + Browserify
 
 #### Tasks
-* `gulp clean`:
+* `gulp clean`: delete all files and folders inside `dist/`.
 * `gulp html`:
 * `gulp js`:
 * `gulp build`:
